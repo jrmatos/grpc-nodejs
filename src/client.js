@@ -13,13 +13,9 @@ client.list({}, (err, notes) => {
     console.log(notes);
 });
 
-setInterval(() => {
-    client.find({ id: 1 }, (err, response) => {
-        if (err) return console.error(err.details);
-        if (!response.note) return console.error('Not found');
-    
-        return console.log(response.note);
-    })
-}, 1000);
+client.find({ id: 1 }, (err, response) => {
+    if (err) return console.error(err.details);
+    if (!response.note) return console.error('Not found');
 
-
+    return console.log(response.note);
+});
